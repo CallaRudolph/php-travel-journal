@@ -4,18 +4,22 @@
 </head>
 <body>
     <div class='container'>
-        <h1>Bean's Bestest AdBeantures</h1>
+        <h1>Bean's Bestest Ad-beantures</h1>
         <h2>I'm Bean, and this is my Travel Journal</h2>
+
+        <img src='/../img/bean.png' alt='picture of am anthropomorphic BEAN'>
 
         {% if places is not empty %}
             <h3>Here are my memories *sigh*</h3>
-            <ul>
+            <ul class='list-unstyled'>
                 {% for place in places %}
                     <li><h4>{{ place.getCity }}</h4></li>
-                    <li>{{ place.getDuration }}</li>
-                    <li>{{ place.getMemory }}</li>
-                    <li>{{ place.getMeal }}</li>
-                    <li>{{ place.getAbductee }}</li>
+                    <ul>
+                        <li>I was there for: {{ place.getDuration }}</li>
+                        <li>Best Trip Memory: {{ place.getMemory }}</li>
+                        <li>Favorite Bean/Food Spot: {{ place.getMeal }}</li>
+                        <li>Favorite Travel Bean-Buddy: {{ place.getAbductee }}</li>
+                    </ul>
                 {% endfor %}
             </ul>
         {% endif %}
@@ -39,6 +43,9 @@
             </div>
 
             <button type='submit' class='btn-info'>Add</button>
+        </form>
+        <form action='/delete_places' method='post'>
+            <button type='submit' class='btn-danger'>Eternal Sunshine</button>
         </form>
     </div>
 </body>
